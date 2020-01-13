@@ -92,5 +92,5 @@ function output (name: string, value: string) {
 }
 
 function isTrue (value: boolean | string): boolean {
-  return true
+  return value === true || value === 'true'
 }
