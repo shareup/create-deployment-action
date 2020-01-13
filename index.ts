@@ -36,7 +36,7 @@ const client = new Octokit({ auth: token, log })
     const { id, response } = await createDeployment()
 
     output('id', id)
-    output('response', response)
+    output('response', JSON.stringify(response))
   } catch (e) {
     setFailed(`error: ${e.stack}`)
   }

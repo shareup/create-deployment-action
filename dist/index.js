@@ -7825,7 +7825,7 @@ var client = new core_2.Octokit({ auth: token, log: log });
             case 1:
                 _a = _b.sent(), id = _a.id, response = _a.response;
                 output('id', id);
-                output('response', response);
+                output('response', JSON.stringify(response));
                 return [3 /*break*/, 3];
             case 2:
                 e_1 = _b.sent();
