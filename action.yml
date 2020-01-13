@@ -1,0 +1,39 @@
+name: create-deployment
+description: GitHub action to create a new GitHub deployment
+
+inputs:
+  ref:
+    required: false
+    description: The ref to issue a deployment for
+    default: ${{ github.sha }}
+  repo:
+    required: false
+    description: Name of the repo, will default to the current repo's name
+  owner:
+    required: false
+    description: Name of the repo's owner (user or org), will default to the current repo's owner
+  environment:
+    required: false
+    description: Environment to issue a deployment for
+    default: staging
+  required_contexts:
+    required: false
+    description: Checks that are required to pass before issuing the deployment, will default to none ([]) always deploy
+  github_token:
+    required: true
+    description: API token for GitHub
+    default: ${{ github.token }}
+  debug:
+    required: false
+    description: If true, then output debugging information
+    default: false
+
+outputs:
+  id:
+    description: ID of the created deployment
+  response:
+    description: HTTP response payload
+
+runs:
+  using: node12
+  main: dist/index.js
